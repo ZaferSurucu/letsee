@@ -1,0 +1,36 @@
+body {
+    display: flex;
+    flex-direction: column;
+    font-size: large;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    height: 50px;
+    width: 50px;
+    font-size: large;
+    font-weight: bold;
+}
+
+.buttons {
+    display: flex;
+    margin-top: 50px;
+}
+
+.digits {
+    width: 150px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.operations {
+    display: flex;
+    flex-direction: column;
+}
+
+.result {
+    height: 50px;
+    font-size: 85px;
+}
