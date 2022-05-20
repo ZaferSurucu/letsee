@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body style="width: 100vw; height: 100vh; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 50px;">
+
+    <img src="#">
+    <div>
+        <input type="text" id="search" style="height: 45px; width: 200px; border-style: none; border: 2px solid blue; border-radius: 25px;">
+        <button id="btn" style="height: 50px; width: 200px; border-style: none; border-radius: 25px; background-color: black; color: white;">Click</button>
+    </div>
+
+    
+    <script>
+        const img = document.querySelector('img');
+        const btn = document.querySelector('#btn');
+        const search_bar = document.querySelector('#search');
+        btn.addEventListener("click" , () => {
+            if(search_bar.value == ""){
+                alert("Please enter a search term");
+            }
+            else{
+                fetch(`https://api.giphy.com/v1/gifs/translate?api_key=DKGlFS4jHlj350Awnq7J7QEo9nzFPY2C&s=${search_bar.value}`, {mode: 'cors'})
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function(response) {
+                    console.log(response);
+                    img.src = response.data.images.original.url;
+                });
+            }
+            
+        });
+    </script>
+
+</body>
+</html>
